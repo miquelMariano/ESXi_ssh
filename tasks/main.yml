@@ -1,0 +1,14 @@
+---
+# tasks file for ESXi_ssh
+
+- name: Ignore shell warnings
+  command: vim-cmd hostsvc/advopt/update UserVars.SuppressShellWarning long 1
+
+- name: Enable ssh server on boot
+  command: chkconfig SSH on
+
+- name: Restart ESXi host daemon
+  command: /etc/init.d/hostd restart
+
+
+
